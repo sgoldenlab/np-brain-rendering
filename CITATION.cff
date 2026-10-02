@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the packages it builds on."
+title: "np-brain-rendering"
+version: 0.1.0
+authors:
+  - family-names: Schneider
+    given-names: Kevin N.
+repository-code: "https://github.com/sgoldenlab/np-brain-rendering"
+license: BSD-3-Clause
+references:
+  - type: article
+    title: "Visualizing anatomically registered data with brainrender"
+    authors:
+      - {family-names: Claudi, given-names: Federico}
+      - {family-names: Tyson, given-names: Adam L.}
+      - {family-names: Petrucco, given-names: Luigi}
+      - {family-names: Margrie, given-names: Troy W.}
+      - {family-names: Portugues, given-names: Ruben}
+      - {family-names: Branco, given-names: Tiago}
+    journal: eLife
+    volume: "10"
+    pages: e65751
+    year: 2021
+    doi: 10.7554/eLife.65751
+  - type: article
+    title: "BrainGlobe Atlas API: a common interface for neuroanatomical atlases"
+    # TODO verify author list/order against the JOSS paper (README gives only 'Claudi et al.')
+    authors:
+      - {family-names: Claudi, given-names: Federico}
+    journal: Journal of Open Source Software
+    volume: "5"
+    issue: "54"
+    pages: "2668"
+    year: 2020
+    doi: 10.21105/joss.02668
+  - type: software
+    title: "vedo, a python module for scientific analysis and visualization of 3D objects and point clouds"
+    authors:
+      - {family-names: Musy, given-names: Marco}
+    year: 2021
+    doi: 10.5281/zenodo.7019968
+  - type: software
+    title: "iblatlas: IBL Atlas Module"
+    authors:
+      - {name: International Brain Laboratory}
+    url: "https://github.com/int-brain-lab/iblatlas"
+    # TODO: add DOI once iblatlas CITATION.cff has one (placeholder when checked)
+  - type: article
+    # TODO verify (source page could not be fetched)
+    title: "The Allen Mouse Brain Common Coordinate Framework: A 3D Reference Atlas"
+    authors:
+      - {family-names: Wang, given-names: Quanxin}
+    journal: Cell
+    volume: "181"
+    issue: "4"
+    pages: "936-953.e20"
+    year: 2020
+    doi: 10.1016/j.cell.2020.04.007

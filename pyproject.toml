@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "np-rendering"
+version = "0.1.0"
+description = "3D mouse-brain rendering helpers (brainrender/vedo): probe tracks, units coloured by a metric, activity animations, plus an atlas-mesh export helper."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Kevin N. Schneider" }]
+requires-python = ">=3.10"
+# Light core: `import np_rendering` and the pure-numpy helpers need only these.
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+# Bregma <-> Allen CCF conversion (coords.py). Tested with iblatlas 0.10.0 (mock=True atlas needs a recent release; falls back otherwise).
+atlas = ["iblatlas>=0.10.0"]
+# 3D rendering. Tested with brainrender 2.1.17, vedo 2025.5.4 (vtk 9.5.2), brainglobe-atlasapi 2.3.0.
+# brainrender pins vedo/vtk loosely; if pip resolves a vedo/vtk pair that breaks, pin to the tested versions above.
+render = [
+    "brainrender>=2.1.17",
+    "vedo>=2025.5.4",
+    "iblatlas>=0.10.0",
+    "brainglobe-atlasapi>=2.0",
+]
+# Fallback ffmpeg binary for videos if `ffmpeg` is not on PATH.
+video = ["imageio-ffmpeg>=0.5"]
+all = ["np-rendering[atlas,render,video]"]
+dev = ["pytest>=8", "ruff>=0.5", "imageio>=2.30", "np-rendering[atlas,video]"]
+
+[project.scripts]
+np-render-download-atlas = "np_rendering.atlas_download:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
